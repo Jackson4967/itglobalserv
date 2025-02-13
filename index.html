@@ -1821,6 +1821,26 @@
             --wpforms-button-size-margin-top: 10px;
         }
     </style>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        /* Modal Styles */
+        #thank-you-modal {
+            display: none;
+            position: fixed;
+            top: -100px; /* Start position */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+            text-align: center;
+            transition: 0.3s;
+        }
+    </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SCVQQF4M08"></script>
     <script>
@@ -3475,7 +3495,7 @@
                                                             <p role="status" aria-live="polite" aria-atomic="true"></p>
                                                             <ul></ul>
                                                         </div>
-                                                        <form action="" method="post" class="wpcf7-form init"
+                                                        <!-- <form action="" method="post" class="wpcf7-form init"
                                                             aria-label="Contact form" novalidate="novalidate"
                                                             data-status="init">
                                                             <div style="display: none;">
@@ -3540,6 +3560,41 @@
                                                                 type="submit" value="Submit"
                                                                 style="background-color: #FF834F; width: 200px; height: 55px; text-transform: uppercase;"><span
                                                                 class="wpcf7-spinner"></span>
+                                                            <div class="wpcf7-response-output" aria-hidden="true"></div>
+                                                        </form> -->
+                                                        <form action="" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
+                                                            <div style="display: none;">
+                                                                <input type="hidden" name="_wpcf7" value="7">
+                                                                <input type="hidden" name="_wpcf7_version" value="5.8">
+                                                                <input type="hidden" name="_wpcf7_locale" value="en_US">
+                                                                <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f7-p983-o1">
+                                                                <input type="hidden" name="_wpcf7_container_post" value="983">
+                                                            </div>
+                                                    
+                                                            <label style="width: 100%;"> Your Name
+                                                                <input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
+                                                                    style="height: 55px; width: 100%; border-radius: 3px; padding: 13px; margin-bottom: 20px; background-color: #F5F5F5; border: none; transition: 0.3s;"
+                                                                    aria-required="true" aria-invalid="false" type="text" name="your-name" required>
+                                                            </label>
+                                                    
+                                                            <label style="width: 100%;"> Your Email
+                                                                <input size="40" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email"
+                                                                    aria-required="true" aria-invalid="false"
+                                                                    style="height: 55px; width: 100%; border-radius: 3px; padding: 13px; margin-bottom: 20px; background-color: #F5F5F5; border: none; transition: 0.3s;"
+                                                                    type="email" name="your-email" required>
+                                                            </label>
+                                                    
+                                                            <label style="width: 100%;"> Your Message (Optional)
+                                                                <textarea cols="40" rows="5" class="wpcf7-form-control wpcf7-textarea"
+                                                                    style="height: 112px; border-radius: 3px; padding: 15px; margin-bottom: 20px; background-color: #F5F5F5; border: none; transition: 0.3s;"
+                                                                    name="your-message"></textarea>
+                                                            </label>
+                                                    
+                                                            <input class="wpcf7-form-control wpcf7-submit has-spinner contact-form-submit-button"
+                                                                type="submit" value="Submit"
+                                                                style="background-color: #FF834F; width: 200px; height: 55px; text-transform: uppercase; cursor: pointer;">
+                                                            <span class="wpcf7-spinner"></span>
+                                                            
                                                             <div class="wpcf7-response-output" aria-hidden="true"></div>
                                                         </form>
                                                     </div>
@@ -3986,6 +4041,23 @@
         </div>
     </footer>
     </div>
+
+     <!-- Modal Popup -->
+     <div id="thank-you-modal">
+        <p>✅ Thank you for your submission!</p>
+    </div>
+
+    <!-- jQuery Script for Modal Popup -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.addEventListener('wpcf7mailsent', function () {
+                $("#thank-you-modal").hide().css("top", "-100px").fadeIn(1000).animate({top: "50%"}, 1000);
+                setTimeout(() => {
+                    $("#thank-you-modal").fadeOut(1000);
+                }, 3000);
+            }, false);
+        });
+    </script>
     <!-- #page -->
     <link rel='stylesheet' id='e-animations-css'
         href='https://itglobalserv.com/wp-content/plugins/elementor/assets/lib/animations/animations.min.css?ver=3.15.1'
