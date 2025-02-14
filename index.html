@@ -1852,10 +1852,10 @@
             "sameAs": ["https://www.facebook.com/itglobalservice/, https://www.linkedin.com/company/itglobalservicesllc/"]
         }
     </script>
-
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const form = document.querySelector(".wpcf7-form");
+            const submitButton = document.querySelector(".wpcf7-submit");
 
             form.addEventListener("submit", function (event) {
                 event.preventDefault(); // Prevent form submission
@@ -1864,9 +1864,12 @@
                 const nameInput = document.querySelector("input[name='your-name']");
                 const emailInput = document.querySelector("input[name='your-email']");
                 const messageInput = document.querySelector("textarea[name='your-message']");
+                const responseOutput = document.querySelector(".wpcf7-response-output");
 
                 // Clear previous error messages
                 document.querySelectorAll(".error-message").forEach(el => el.remove());
+                responseOutput.innerHTML = ""; // Clear previous success message
+                responseOutput.style.display = "none";
 
                 // Validate Name
                 if (nameInput.value.trim() === "") {
@@ -1883,10 +1886,24 @@
                     showError(emailInput, "Invalid email format.");
                 }
 
-                // If all validations pass, submit the form
-                if (isValid) {
-                    form.submit();
-                }
+                if (!isValid) return; // Stop execution if validation fails
+
+                // Show loading effect
+                submitButton.value = "Submitting...";
+                submitButton.disabled = true;
+
+                setTimeout(() => {
+                    // Simulate form submission success
+                    responseOutput.innerHTML = "<p style='color: green; font-size: 16px;'>Your message has been sent successfully!</p>";
+                    responseOutput.style.display = "block";
+
+                    // Reset form fields
+                    form.reset();
+
+                    // Restore button state
+                    submitButton.value = "Submit";
+                    submitButton.disabled = false;
+                }, 2000); // Simulate a 2-second delay
             });
 
             function showError(inputElement, message) {
@@ -1906,32 +1923,6 @@
         });
     </script>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const form = document.querySelector(".wpcf7-form");
-            const submitButton = form.querySelector(".contact-form-submit-button");
-            const responseOutput = form.querySelector(".wpcf7-response-output");
-
-            form.addEventListener("submit", function (event) {
-                event.preventDefault(); // Prevent actual submission
-
-                // Disable button and show loading text
-                submitButton.disabled = true;
-                submitButton.value = "Submitting...";
-
-                // Simulate loading delay
-                setTimeout(function () {
-                    submitButton.value = "Submit";
-                    submitButton.disabled = false;
-
-                    // Show success message
-                    responseOutput.innerHTML = "Thank you! Your message has been sent.";
-                    responseOutput.style.color = "green";
-                    responseOutput.style.display = "block";
-                }, 2000); // 2 seconds delay
-            });
-        });
-    </script>
 
 
     <script type="application/ld+json">
