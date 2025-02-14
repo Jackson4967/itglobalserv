@@ -1894,7 +1894,8 @@
 
                 setTimeout(() => {
                     // Simulate form submission success
-                    responseOutput.innerHTML = "<p style='color: green; font-size: 16px;'>Your message has been sent successfully!</p>";
+                    responseOutput.innerHTML = "Your message has been sent successfully!";
+                    responseOutput.style.color = "green";
                     responseOutput.style.display = "block";
 
                     // Reset form fields
@@ -1904,6 +1905,10 @@
                     submitButton.value = "Submit";
                     submitButton.disabled = false;
                 }, 2000); // Simulate a 2-second delay
+
+                setTimeout(() => {
+                    responseOutput.style.display = "none";
+                }, 3000); // Hide success message after 5 seconds
             });
 
             function showError(inputElement, message) {
