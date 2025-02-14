@@ -1894,7 +1894,11 @@
 
                 setTimeout(() => {
                     // Reset form fields
-                    form.reset();
+                    // form.reset();
+                    emailInput.value = "";
+                    nameInput.value = "";
+                    messageInput.value = "";
+
                     // Simulate form submission success
                     responseOutput.style.color = "green";
                     responseOutput.style.display = "block";
