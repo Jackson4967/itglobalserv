@@ -1852,6 +1852,60 @@
             "sameAs": ["https://www.facebook.com/itglobalservice/, https://www.linkedin.com/company/itglobalservicesllc/"]
         }
     </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector(".wpcf7-form");
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault(); // Prevent form submission
+
+                let isValid = true;
+                const nameInput = document.querySelector("input[name='your-name']");
+                const emailInput = document.querySelector("input[name='your-email']");
+                const messageInput = document.querySelector("textarea[name='your-message']");
+
+                // Clear previous error messages
+                document.querySelectorAll(".error-message").forEach(el => el.remove());
+
+                // Validate Name
+                if (nameInput.value.trim() === "") {
+                    isValid = false;
+                    showError(nameInput, "Name is required.");
+                }
+
+                // Validate Email
+                if (emailInput.value.trim() === "") {
+                    isValid = false;
+                    showError(emailInput, "Email is required.");
+                } else if (!validateEmail(emailInput.value)) {
+                    isValid = false;
+                    showError(emailInput, "Invalid email format.");
+                }
+
+                // If all validations pass, submit the form
+                if (isValid) {
+                    form.submit();
+                }
+            });
+
+            function showError(inputElement, message) {
+                const errorElement = document.createElement("div");
+                errorElement.className = "error-message";
+                errorElement.style.color = "red";
+                errorElement.style.fontSize = "14px";
+                errorElement.style.marginTop = "5px";
+                errorElement.textContent = message;
+                inputElement.parentNode.appendChild(errorElement);
+            }
+
+            function validateEmail(email) {
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailPattern.test(email);
+            }
+        });
+    </script>
+
     <script type="application/ld+json">
         {
             "@context": "http://schema.org",
@@ -2439,7 +2493,8 @@
 
                                                 <div class="single__box">
 
-                                                    <div class="box__icon "><i class="fa-sharp fa-thin fa-layer-group"></i>
+                                                    <div class="box__icon "><i
+                                                            class="fa-sharp fa-thin fa-layer-group"></i>
                                                     </div>
                                                     <h3 class="box__title"><a
                                                             href="https://itglobalserv.com/wireless-deployments/">Wireless</a>
@@ -3286,17 +3341,14 @@
                                         <div class="ultimate__single__post ultimate__post__layout__5">
 
                                             <div class="post__thumb">
-                                                <a
-                                                    href="#"><img
-                                                        decoding="async"
+                                                <a href="#"><img decoding="async"
                                                         src="https://itglobalserv.com/wp-content/uploads/2022/08/OIP-5.jpg"
                                                         alt="How to Use Technology to Build Trust in Your Business"></a>
                                             </div>
                                             <div class="post__content">
                                                 <div class="post__inner">
                                                     <ul class="post__category">
-                                                        <li><a href="#"
-                                                                class="category it-global">it global</a></li>
+                                                        <li><a href="#" class="category it-global">it global</a></li>
                                                     </ul>
                                                     <ul class="post__meta">
 
@@ -3307,8 +3359,7 @@
 
 
                                                     </ul>
-                                                    <h3 class="post__title"><a
-                                                            href="#">How
+                                                    <h3 class="post__title"><a href="#">How
                                                             to Use Technology to Build Trust in Your Business</a></h3>
                                                     <p>Take note of these 6 tips to building trust with technology. For
                                                         small and medium-sized firms, technology can be a risky
@@ -3324,17 +3375,14 @@
                                         <div class="ultimate__single__post ultimate__post__layout__5">
 
                                             <div class="post__thumb">
-                                                <a
-                                                    href="#"><img
-                                                        decoding="async"
+                                                <a href="#"><img decoding="async"
                                                         src="https://itglobalserv.com/wp-content/uploads/2022/08/images-1.jpg"
                                                         alt="How Microsoft Teams VoIP is the Top Systems Product (2022)"></a>
                                             </div>
                                             <div class="post__content">
                                                 <div class="post__inner">
                                                     <ul class="post__category">
-                                                        <li><a href="#"
-                                                                class="category it-global">it global</a></li>
+                                                        <li><a href="#" class="category it-global">it global</a></li>
                                                     </ul>
                                                     <ul class="post__meta">
 
@@ -3345,8 +3393,7 @@
 
 
                                                     </ul>
-                                                    <h3 class="post__title"><a
-                                                            href="#">How
+                                                    <h3 class="post__title"><a href="#">How
                                                             Microsoft Teams VoIP is the Top Systems Product (2022)</a>
                                                     </h3>
                                                     <p>https://youtu.be/PYCTGGihFC0 Microsoft Teams VoIP Benefits
@@ -3366,17 +3413,14 @@
                                         <div class="ultimate__single__post ultimate__post__layout__5">
 
                                             <div class="post__thumb">
-                                                <a
-                                                    href="#"><img
-                                                        decoding="async"
+                                                <a href="#"><img decoding="async"
                                                         src="https://itglobalserv.com/wp-content/uploads/2022/08/coppertreesolutionsheader-1024x504.jpg"
                                                         alt="Why Leveraging Technology Can Help Make Effective Business Solutions"></a>
                                             </div>
                                             <div class="post__content">
                                                 <div class="post__inner">
                                                     <ul class="post__category">
-                                                        <li><a href="#"
-                                                                class="category it-global">it global</a></li>
+                                                        <li><a href="#" class="category it-global">it global</a></li>
                                                     </ul>
                                                     <ul class="post__meta">
 
@@ -3387,8 +3431,7 @@
 
 
                                                     </ul>
-                                                    <h3 class="post__title"><a
-                                                            href="#">Why
+                                                    <h3 class="post__title"><a href="#">Why
                                                             Leveraging Technology Can Help Make Effective Business
                                                             Solutions</a></h3>
                                                     <p>Sharing Our Case Study Story Leveraging technology is a great way
@@ -3561,7 +3604,8 @@
 
                                                     <div class="box__icon "
                                                         style="background-image: linear-gradient(135deg, #FF834F 0%, #000000 100%);">
-                                                        <i class="fa-solid fa-phone"></i></div>
+                                                        <i class="fa-solid fa-phone"></i>
+                                                    </div>
                                                     <h3 class="box__title">Call Us.</h3>
                                                     <div class="box__description">
                                                         <p>+1-208-994-3801</p>
@@ -3580,7 +3624,8 @@
 
                                                     <div class="box__icon "
                                                         style="background-image: linear-gradient(135deg, #FF834F 0%, #000000 100%);">
-                                                        <i class="fas fa-envelope"></i></div>
+                                                        <i class="fas fa-envelope"></i>
+                                                    </div>
                                                     <h3 class="box__title">Email Us.</h3>
                                                     <div class="box__description">
                                                         <p>Info@itglobalservs.com</p>
@@ -3599,7 +3644,8 @@
 
                                                     <div class="box__icon "
                                                         style="background-image: linear-gradient(135deg, #FF834F 0%, #000000 100%);">
-                                                        <i class="fas fa-home"></i></div>
+                                                        <i class="fas fa-home"></i>
+                                                    </div>
                                                     <h3 class="box__title">USA Address</h3>
                                                     <div class="box__description">
                                                         <p>1309 Coffeen Avenue STE 1200
@@ -3619,7 +3665,8 @@
 
                                                     <div class="box__icon "
                                                         style="background-image: linear-gradient(135deg, #FF834F 0%, #000000 100%);">
-                                                        <i class="fas fa-home"></i></div>
+                                                        <i class="fas fa-home"></i>
+                                                    </div>
                                                     <h3 class="box__title"> India Address</h3>
                                                     <div class="box__description">
                                                         <p> C 50, sector 30, Gautam Buddha
@@ -3748,26 +3795,22 @@
                                                     <ul class="sub-menu">
                                                         <li id="menu-item-5114"
                                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5114">
-                                                            <a title="Network deployment"
-                                                                href="#">Network
+                                                            <a title="Network deployment" href="#">Network
                                                                 deployment</a>
                                                         </li>
                                                         <li id="menu-item-5113"
                                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5113">
-                                                            <a title="Wireless deployments"
-                                                                href="#">Wireless
+                                                            <a title="Wireless deployments" href="#">Wireless
                                                                 deployments</a>
                                                         </li>
                                                         <li id="menu-item-5112"
                                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5112">
-                                                            <a title="Cloud Solutions"
-                                                                href="#">Cloud
+                                                            <a title="Cloud Solutions" href="#">Cloud
                                                                 Solutions</a>
                                                         </li>
                                                         <li id="menu-item-5111"
                                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5111">
-                                                            <a title="VOIP/Unified Communications"
-                                                                href="#">VOIP/Unified
+                                                            <a title="VOIP/Unified Communications" href="#">VOIP/Unified
                                                                 Communications</a>
                                                         </li>
                                                         <li id="menu-item-5110"
@@ -3778,8 +3821,7 @@
                                                         </li>
                                                         <li id="menu-item-5109"
                                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5109">
-                                                            <a title="End User computing"
-                                                                href="#">End
+                                                            <a title="End User computing" href="#">End
                                                                 User computing</a>
                                                         </li>
                                                     </ul>
