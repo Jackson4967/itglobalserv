@@ -1906,6 +1906,34 @@
         });
     </script>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector(".wpcf7-form");
+            const submitButton = form.querySelector(".contact-form-submit-button");
+            const responseOutput = form.querySelector(".wpcf7-response-output");
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault(); // Prevent actual submission
+
+                // Disable button and show loading text
+                submitButton.disabled = true;
+                submitButton.value = "Submitting...";
+
+                // Simulate loading delay
+                setTimeout(function () {
+                    submitButton.value = "Submit";
+                    submitButton.disabled = false;
+
+                    // Show success message
+                    responseOutput.innerHTML = "Thank you! Your message has been sent.";
+                    responseOutput.style.color = "green";
+                    responseOutput.style.display = "block";
+                }, 2000); // 2 seconds delay
+            });
+        });
+    </script>
+
+
     <script type="application/ld+json">
         {
             "@context": "http://schema.org",
