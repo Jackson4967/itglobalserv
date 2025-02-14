@@ -1897,7 +1897,6 @@
                     responseOutput.innerHTML = "Your message has been sent successfully!";
                     responseOutput.style.color = "green";
                     responseOutput.style.display = "block";
-
                     // Reset form fields
                     form.reset();
 
@@ -1908,7 +1907,7 @@
 
                 setTimeout(() => {
                     responseOutput.style.display = "none";
-                }, 3000); // Hide success message after 5 seconds
+                }, 5000); // Hide success message after 5 seconds
             });
 
             function showError(inputElement, message) {
