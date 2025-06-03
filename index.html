@@ -507,6 +507,62 @@
             line-height: 1.6;
         }
     </style>
+    <style>
+        .slideshow_custom_hero {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .slideshow_custom_hero img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            animation: fadeZoom 15s infinite;
+        }
+
+        .slideshow_custom_hero img:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .slideshow_custom_hero img:nth-child(2) {
+            animation-delay: 5s;
+        }
+
+        .slideshow_custom_hero img:nth-child(3) {
+            animation-delay: 10s;
+        }
+
+        @keyframes fadeZoom {
+            0% {
+                opacity: 0;
+                transform: scale(1);
+            }
+
+            5% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            30% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+
+            35% {
+                opacity: 0;
+                transform: scale(1.1);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(1.1);
+            }
+        }
+    </style>
     <link rel='stylesheet' id='contact-form-7-css'
         href='https://itglobalserv.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.8' media='all' />
     <link rel='stylesheet' id='hfe-style-css'
@@ -2375,6 +2431,11 @@
             class="elementor-section elementor-top-section elementor-element elementor-element-3d6ce34 elementor-section-height-full elementor-section-boxed elementor-section-height-default elementor-section-items-middle"
             data-id="3d6ce34" data-element_type="section"
             data-settings="{&quot;background_background&quot;:&quot;slideshow&quot;,&quot;background_slideshow_gallery&quot;:[{&quot;id&quot;:3836,&quot;url&quot;:&quot;https:\/\/itglobalservs.com\/wp-content\/87.jpg&quot;},{&quot;id&quot;:3843,&quot;url&quot;:&quot;https:\/\/itglobalservs.com\/wp-content\/banner-man-laptop.jpg&quot;},{&quot;id&quot;:842,&quot;url&quot;:&quot;https:\/\/itglobalservs.com\/wp-content\/222.jpg&quot;}],&quot;background_slideshow_transition_duration&quot;:5000,&quot;background_slideshow_ken_burns&quot;:&quot;yes&quot;,&quot;background_slideshow_loop&quot;:&quot;yes&quot;,&quot;background_slideshow_slide_duration&quot;:5000,&quot;background_slideshow_slide_transition&quot;:&quot;fade&quot;,&quot;background_slideshow_ken_burns_zoom_direction&quot;:&quot;in&quot;}">
+            <div class="slideshow_custom_hero">
+                <img src="https://itglobalservs.com/wp-content/87.jpg" alt="Slide 1" />
+                <img src="https://itglobalservs.com/wp-content/banner-man-laptop.jpg" alt="Slide 2" />
+                <img src="https://itglobalservs.com/wp-content/222.jpg" alt="Slide 3" />
+            </div>
             <div class="elementor-background-overlay"></div>
             <div class="elementor-container elementor-column-gap-default">
                 <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-f8273b9"
