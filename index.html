@@ -509,6 +509,17 @@
     </style>
 
     <style>
+        #contact-us  .contact-us-form-section {
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 30px;
+
+        }
+        @media (max-width: 960px) {
+            #contact-us .contact-us-form-section {
+                grid-template-columns: auto;
+            }
+        }
         #home {
             height: 100vh;
             /* Full viewport height */
@@ -3088,7 +3099,7 @@
         </section>
         <section id="testimonials"
             class="elementor-section elementor-top-section elementor-element elementor-element-4ff7c23 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-            data-id="4ff7c23" data-element_type="section">
+            data-id="4ff7c23" data-element_type="section" style="display: flex; justify-content: center;">
             <div class="elementor-container elementor-column-gap-default">
                 <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-7e95f12"
                     data-id="7e95f12" data-element_type="column">
@@ -3124,7 +3135,7 @@
         </section>
         <section
             class="elementor-section elementor-top-section elementor-element elementor-element-15e10fa elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-            data-id="15e10fa" data-element_type="section">
+            data-id="15e10fa" data-element_type="section" style="display: flex; justify-content: center;">
             <div class="elementor-container elementor-column-gap-default">
                 <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-ca3f1fb"
                     data-id="ca3f1fb" data-element_type="column">
@@ -3585,7 +3596,7 @@
             class="elementor-section elementor-top-section elementor-element elementor-element-374d3442 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
             data-id="374d3442" data-element_type="section"
             data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"
-            style="padding-top: 100px; padding-bottom: 50px;">
+            style="padding-top: 100px; padding-bottom: 50px; display: flex; justify-content: center;">
             <div class="elementor-container elementor-column-gap-default" style="background-color: white;">
                 <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-64e5ebdb"
                     data-id="64e5ebdb" data-element_type="column">
@@ -3593,7 +3604,7 @@
                         <section
                             class="elementor-section elementor-inner-section elementor-element elementor-element-10e0aa19 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default"
                             data-id="10e0aa19" data-element_type="section">
-                            <div class="elementor-container elementor-column-gap-default">
+                            <div class="elementor-container elementor-column-gap-default contact-us-form-section">
                                 <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-5725198a animated fadeInRight"
                                     data-id="5725198a" data-element_type="column"
                                     style="box-shadow: 0px 10px 20px 0px rgba(0, 69.00000000000021, 255, 0.12); padding: 20px;"
